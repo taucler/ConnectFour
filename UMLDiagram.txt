@@ -1,0 +1,48 @@
+@startuml
+package Game #DDDDDD {
+  Game *- Player
+  Game *-- Grid
+  Game *- UI
+
+  Grid <- Player : use
+  Grid *-- NormalGrid
+  Grid *.. CustomGrid
+  
+  Player *-- IA_Player
+  Player *.. Human_Player
+
+  Grid : getNeighbors
+}
+
+package Game.Rules #DDDDDD {
+  Grid *-- ICell
+
+  Iupdatable : onUpdate(Grid)
+  Iupdatable <.. Game_Manager
+
+  Game_Manager : onUpdate(Grid)
+  Game_Manager *-- IWinRule
+
+  IWinRule : onUpdate(Grid)
+  IWinRule *-- WinRule
+ 
+} 
+
+package UI #DDDDDD {
+  UI <- Human_Player : use
+
+  UI <-- Game_Manager : use
+  UI *-- File_Writer
+  UI *-- ICMDInterpreter
+  UI *-- Renderer
+
+  ICMDInterpreter <.. CMDInterpreter
+
+  Renderer <.. CMDRenderer
+  CMDRenderer <- CMDInterpreter : use
+}
+
+package Algo #DDDDDD {
+  IA_Player *-- Strategie
+}
+@enduml
