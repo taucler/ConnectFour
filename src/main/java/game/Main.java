@@ -1,3 +1,5 @@
+package main.java.game;
+
 public class Main{
 
     public static void main(String[] args) {
@@ -6,9 +8,9 @@ public class Main{
 
         //Display the menu on the screen and get the player info
         System.out.println("Player 1 ?");
-        Player Player1 = new Player(entry.next(), entry.next());
+        Player player1 = new Player(entry.next(), entry.next());
         System.out.println("Player 2 ?");
-        Player Player2 = new Player(entry.next(), entry.next());
+        Player player2 = new Player(entry.next(), entry.next());
 
         //Display a new grid on the screen
         //System.out.println("Please provide grid dimensions : l c");
@@ -17,35 +19,35 @@ public class Main{
 
         //Play
         Game new_game = new Game(new_grid);
-        Player Player=Player1;
+        Player player = player1;
         while(true) {
-            if(Player == Player1) {
-                if(Player1.getType().equals("human")){
-                    System.out.println(Player1.getName() + ", your turn ! Please enter a column to play.");
+            if(player == player1) {
+                if(player1.getType().equals("human")){
+                    System.out.println(player1.getName() + ", your turn ! Please enter a column to play.");
                 }
                 int token = 1;
-                int column = new_game.check(Player, 7);
+                int column = new_game.putToken(player, 7);
                 if (new_game.play(new_grid, column, new_grid.state) == true) {
                     int line = new_game.getLine(new_grid, column, new_grid.state);
                     Grid grid = new_grid;
                     grid.fillSquare(grid, grid.state, line, column, token);
                 }
                 new_grid.display();
-                Player = Player2;
+                player = player2;
             }
-            if(Player == Player2) {
-                if(Player2.getType().equals("human")){
-                    System.out.println(Player2.getName() + ", your turn ! Please enter a column to play.");
+            if(player == player2) {
+                if(player2.getType().equals("human")){
+                    System.out.println(player2.getName() + ", your turn ! Please enter a column to play.");
                 }
                 int token = 2;
-                int column = new_game.check(Player, 7);
+                int column = new_game.putToken(player, 7);
                 if (new_game.play(new_grid, column, new_grid.state) == true) {
                     int line = new_game.getLine(new_grid, column, new_grid.state);
                     Grid grid = new_grid;
                     grid.fillSquare(grid, grid.state, line, column, token);
                 }
                 new_grid.display();
-                Player = Player1;
+                player = player2;
             }
         }
     }
