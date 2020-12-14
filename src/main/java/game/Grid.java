@@ -7,26 +7,32 @@ public class Grid {
     private int lines;
     private int columns;
     private char[][] grid;
-    public int[][] state; // 0: empty / 1:X / 2:O
+    private int[][] state; // 0: empty / 1:X / 2:O
 
+    public Grid() {
+        this.lines = 6; //Default value
+        this.columns = 7;   //Default value
+        this.grid = new char[this.lines][this.columns];
+        this.state = new int[this.lines][this.columns];
+    }
 
     /* Build a empty grid with default dimensions */
-    public Grid(int lines, int columns) {
+    public Grid(int line, int column) {
 
-        if ((lines < 1) || (columns < 1)){
-            throw new IllegalArgumentException("Grid dimensions must excess 0.");
+        if ((line < 4) || (column < 4)){
+            throw new IllegalArgumentException("Grid dimensions must excess 4.");
         }
 
-        this.lines = lines;
-        this.columns = columns;
-        grid = new char[lines][columns];
-        state = new int[lines][columns];
+        this.lines = line;
+        this.columns = column;
+        this.grid = new char[this.lines][this.columns];
+        this.state = new int[this.lines][this.columns];
 
         //Initialize
-        for (int i = 0; i<lines; i++){
-            for (int j = 0; j<columns; j++){
-                grid[i][j] = '.';
-                state[i][j] = 0;
+        for (int i = 0; i<line; i++){
+            for (int j = 0; j<column; j++){
+                this.grid[i][j] = '.';
+                this.state[i][j] = 0;
             }
         }
     }
@@ -39,6 +45,8 @@ public class Grid {
     public int getColumns() {
         return columns;
     }
+
+    public int getState(int line, int column) {return state[line][column];}
 
     //Setters
 
@@ -54,13 +62,15 @@ public class Grid {
         this.state = s;
     }
 
-    public void display() {
+    public void setState(int line, int column, int val){this.state[line][column]=val;}
 
+    public void display() {
+    //A corriger
         System.out.println();
 
-        for (int i = 0; i < lines; i++){
-            for (int j = 0; j < columns; j++){
-                System.out.print(" | " + grid[i][j]);
+        for (int i = 0; i < this.lines; i++){
+            for (int j = 0; j < this.columns; j++){
+                System.out.print(" | " + this.grid[i][j]);
             }
 
             System.out.print(" | ");
@@ -70,18 +80,23 @@ public class Grid {
         System.out.println();
     }
 
-    public void fillSquare(Grid grid, int[][] state, int line, int column, int token) {
+    public void fillSquare(int column, int token) {
         //fill a square when a player wants to play
-        if(token == 1) {
-            grid.grid[line][column] = 'X';
-            state[line][column] = 1;
-
+        int current;
+        current = this.lines-1;
+        if(this.state[current][column]!=0){
+            System.out.println("Column choosed is already full, please choose a new column.");
         }
-
+        while(this.state[current][column]==0){
+            current--;
+        }
+        if(token == 1) {
+            this.grid[current+1][column] = 'X';
+            this.state[current+1][column] = 1;
+        }
         if(token == 2) {
-            grid.grid[line][column] = 'O';
-            state[line][column] = 2;
-
+            this.grid[current+1][column] = 'O';
+            this.state[current+1][column] = 2;
         }
     }
 

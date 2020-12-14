@@ -3,6 +3,8 @@ package main.java.game;
 public class Main{
 
     public static void main(String[] args) {
+        System.out.println("Welcome to ConnectFour !");
+        System.out.println("Please for each player choose human/ia and an username.");
         //Getting what's typed in the shell
         java.util.Scanner entry =   new java.util.Scanner(System.in);
 
@@ -30,7 +32,7 @@ public class Main{
                 if (new_game.play(new_grid, column, new_grid.state) == true) {
                     int line = new_game.getLine(new_grid, column, new_grid.state);
                     Grid grid = new_grid;
-                    grid.fillSquare(grid, grid.state, line, column, token);
+                    grid.fillSquare(column, token);
                 }
                 new_grid.display();
                 player = player2;
@@ -44,10 +46,10 @@ public class Main{
                 if (new_game.play(new_grid, column, new_grid.state) == true) {
                     int line = new_game.getLine(new_grid, column, new_grid.state);
                     Grid grid = new_grid;
-                    grid.fillSquare(grid, grid.state, line, column, token);
+                    grid.fillSquare(column, token);
                 }
                 new_grid.display();
-                player = player2;
+                player = player1;
             }
         }
     }
