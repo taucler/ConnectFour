@@ -83,12 +83,12 @@ public class Grid {
     public void fillSquare(int column, int token) {
         //fill a square when a player wants to play
         int current;
-        current = this.lines-1;
+        current = 0;
         if(this.state[current][column]!=0){
             System.out.println("Column choosed is already full, please choose a new column.");
         }
         while(this.state[current][column]==0){
-            current--;
+            current++;
         }
         if(token == 1) {
             this.grid[current+1][column] = 'X';
