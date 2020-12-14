@@ -6,6 +6,7 @@ public class Game{
 
     //Attributes
     private Grid grid;
+    private int nbPlayers;
 
     //Constructor
     public Game(Grid grid) {
@@ -21,7 +22,7 @@ public class Game{
         return grid = g;
     }
 
-    public int putToken(Player player, int gridLength) {
+    public int askToken(Player player, int gridLength) {
         java.util.Scanner entry =   new java.util.Scanner(System.in);
         //if the player is an ia
         if(player.getType().equals("ia")){
