@@ -74,6 +74,10 @@ public class Grid {
     public void display() {
     //A corriger
         System.out.println();
+        for (int i = 1; i < this.columns + 1; i++) {
+            System.out.print("   " + i);
+        }
+        System.out.println();
 
         for (int i = 0; i < this.lines; i++){
             for (int j = 0; j < this.columns; j++){
