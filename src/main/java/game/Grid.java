@@ -14,6 +14,13 @@ public class Grid {
         this.columns = 7;   //Default value
         this.grid = new char[this.lines][this.columns];
         this.state = new int[this.lines][this.columns];
+        //Initialize
+        for (int i = 0; i<this.lines; i++){
+            for (int j = 0; j<this.columns; j++){
+                this.grid[i][j] = '.';
+                this.state[i][j] = 0;
+            }
+        }
     }
 
     /* Build a empty grid with default dimensions */
@@ -87,7 +94,7 @@ public class Grid {
         if(this.state[current][column]!=0){
             System.out.println("Chosen column is already full, please choose a new column.");
         }
-        while(this.state[current][column]==0){
+        while((this.state[current][column]==0) && (current<grid.lines)) {
             current++;
         }
         if(token == 1) {

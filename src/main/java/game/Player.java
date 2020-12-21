@@ -7,6 +7,10 @@ public class Player{
     private String name;
 
     //Constructor
+    public Player(){
+        this.type = "ia";
+        this.name = "MrRobot";
+    }
     public Player(String type, String name) {
         this.type=type;
         this.name=name;

@@ -21,14 +21,16 @@ public class App {
             int nbPlayers = Integer.parseInt(entry.next());
             Player players[] = new Player[nbPlayers];
             for(int i = 0; i<nbPlayers; i++){
+                players[i]= new Player();
                 System.out.println("Please for each player choose human/ia and an username.");
-               // players[i].setType(entry.next());
+                players[i].setType(entry.next());
+                players[i].setName(entry.next());
             }
             int round = 0;
             int currentPlayer;
             //Play
             TestGrid end = new TestGrid();
-
+            grid.display();
             while (end.getWin() == 0) {
                 currentPlayer = round % nbPlayers;
                 if (players[currentPlayer].getType().equals("human")) {
