@@ -1,15 +1,19 @@
-package display;
+package test.java.display;
 
-import main.java.Grid;
+import main.java.game.Grid;
 
 public class TestGrid {
     private int win;
 
     public TestGrid(){
-        this.win == 0;
+        this.win = 0;
     }
 
-    public testGrid(Grid grid, int line, int column){
+    public int getWin() {
+        return win;
+    }
+
+    public void testGrid(Grid grid, int line, int column){
         int count = 1;
         int i = 1;
         int token = grid.getState(line,column);

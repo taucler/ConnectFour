@@ -1,14 +1,14 @@
 package main.java.game;
-import display.TestGrid;
-import test.java.display;
+import test.java.display.TestGrid;
 
-public class Main{
+public class Main {
+
 
     public static void main(String[] args) {
         System.out.println("Welcome to ConnectFour !");
         System.out.println("Please for each player choose human/ia and an username.");
         //Getting what's typed in the shell
-        java.util.Scanner entry =   new java.util.Scanner(System.in);
+        java.util.Scanner entry = new java.util.Scanner(System.in);
 
         //Display a new grid on the screen
         //System.out.println("Please provide grid dimensions : l c");
@@ -25,9 +25,9 @@ public class Main{
         //Play
         TestGrid end = new TestGrid();
 
-        while(end.getWin == false) {
-            currentPlayer = round%nbPlayers;
-            if(players[currentPlayer].getType().equals("human")){
+        while (end.getWin() == 0) {
+            currentPlayer = round % nbPlayers;
+            if (players[currentPlayer].getType().equals("human")) {
                 System.out.println(players[currentPlayer].getName() + ", your turn ! Please enter a column to play.");
             }
             int token = currentPlayer + 1;

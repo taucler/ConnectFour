@@ -1,5 +1,5 @@
 package main.java.game;
-import display.TestGrid;
+import test.java.display.TestGrid;
 import java.util.*;
 
 public class Grid {
@@ -80,7 +80,7 @@ public class Grid {
         System.out.println();
     }
 
-    public void fillSquare(int column, int token, TestGrid endgame) {
+    public void fillSquare(int column, int token, Grid grid, TestGrid endgame) {
         //fill a square when a player wants to play
         int current;
         current = 0;
@@ -98,7 +98,7 @@ public class Grid {
             this.grid[current+1][column] = 'O';
             this.state[current+1][column] = 2;
         }
-        endgame.testGrid();
+        endgame.testGrid(grid, current+1, column);
     }
 
 }

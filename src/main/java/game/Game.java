@@ -1,7 +1,6 @@
 package main.java.game;
 
 import java.util.Random;
-import display.TestGrid;
 import test.java.display.TestGrid;
 public class Game{
 
@@ -29,11 +28,11 @@ public class Game{
         if(player.getType().equals("ia")){
             Random rand = new Random();
             int choice = rand.nextInt(grid.getColumns()-1);
-            grid.fillSquare(choice-1, token, endgame);
+            grid.fillSquare(choice-1, token, grid, endgame);
         }
         //if the player is a human
         int choice = entry.nextInt();
-        grid.fillSquare(choice-1, token, endgame);
+        grid.fillSquare(choice-1, token, grid,endgame);
     }
 
     public int getLine(Grid grid, int column, int[][] state) {
