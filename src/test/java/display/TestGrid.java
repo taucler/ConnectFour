@@ -17,8 +17,10 @@ public class TestGrid {
         int count = 1;
         int i = 1;
         int token = grid.getState(line,column);
+        //System.out.println(token);
         //Test de la grille verticalement
-        while(token==grid.getState(line-1, column)){
+        //System.out.println(grid.getState(line+i, column));
+        while(token==grid.getState(line+i, column)){
             count++;
             i++;
         }
@@ -76,8 +78,9 @@ public class TestGrid {
             i++;
         }
         if(count>=4){
-            this.win = 0;
+            this.win = 1;
             return;
         }
+        System.out.println("Testgrid done");
     }
 }

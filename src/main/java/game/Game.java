@@ -30,9 +30,11 @@ public class Game{
             int choice = rand.nextInt(grid.getColumns()-1);
             grid.fillSquare(choice-1, token, grid, endgame);
         }
-        //if the player is a human
-        int choice = entry.nextInt();
-        grid.fillSquare(choice-1, token, grid,endgame);
+        else {
+            //if the player is a human
+            int choice = entry.nextInt();
+            grid.fillSquare(choice - 1, token, grid, endgame);
+        }
     }
 
     public int getLine(Grid grid, int column, int[][] state) {

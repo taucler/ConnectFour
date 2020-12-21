@@ -53,7 +53,14 @@ public class Grid {
         return columns;
     }
 
-    public int getState(int line, int column) {return state[line][column];}
+    public int getState(int line, int column) {
+        if(line >= this.lines || line < 0){
+            return 0;
+        }
+        if(column >= this.columns || column < 0){
+            return 0;
+        }
+        return state[line][column];}
 
     //Setters
 
@@ -72,7 +79,6 @@ public class Grid {
     public void setState(int line, int column, int val){this.state[line][column]=val;}
 
     public void display() {
-    //A corriger
         System.out.println();
         for (int i = 1; i < this.columns + 1; i++) {
             System.out.print("   " + i);
@@ -98,18 +104,23 @@ public class Grid {
         if(this.state[current][column]!=0){
             System.out.println("Chosen column is already full, please choose a new column.");
         }
-        while((this.state[current][column]==0) && (current<grid.lines)) {
+        while((this.state[current][column]==0) && (current<grid.getLines()-1)) {
             current++;
         }
+        if(current == grid.getLines()-1){
+            current++;
+        }
+        System.out.println(this.state[current-1][column]);
         if(token == 1) {
-            this.grid[current+1][column] = 'X';
-            this.state[current+1][column] = 1;
+            this.grid[current-1][column] = 'X';
+            this.state[current-1][column] = 1;
         }
         if(token == 2) {
-            this.grid[current+1][column] = 'O';
-            this.state[current+1][column] = 2;
+            this.grid[current-1][column] = 'O';
+            this.state[current-1][column] = 2;
         }
-        endgame.testGrid(grid, current+1, column);
+        System.out.println("Before testGrid");
+        endgame.testGrid(grid, current-1, column);
     }
 
 }

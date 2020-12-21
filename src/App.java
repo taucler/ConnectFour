@@ -38,6 +38,7 @@ public class App {
                 }
                 int token = currentPlayer + 1;
                 game.play(players[currentPlayer], grid, token, end);
+                grid.display();
                 round++;
             }
         }
