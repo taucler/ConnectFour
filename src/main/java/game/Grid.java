@@ -105,9 +105,10 @@ public class Grid {
             System.out.println("Chosen column is already full, please choose a new column.");
         }
         while((this.state[current][column]==0) && (current<grid.getLines()-1)) {
+            System.out.println(current);
             current++;
         }
-        if(current == grid.getLines()-1){
+        if((current == grid.getLines()-1) && (this.state[current][column]==0)){
             current++;
         }
         System.out.println(this.state[current-1][column]);

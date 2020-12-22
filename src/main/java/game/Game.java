@@ -33,6 +33,11 @@ public class Game{
         else {
             //if the player is a human
             int choice = entry.nextInt();
+            while(grid.getState(0,choice-1)!=0){
+                System.out.println("Chosen column is already full, please choose a new column.");
+                choice=entry.nextInt();
+
+            }
             grid.fillSquare(choice - 1, token, grid, endgame);
         }
     }
