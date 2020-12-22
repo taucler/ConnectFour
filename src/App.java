@@ -5,13 +5,15 @@ import main.java.game.Player;
 import main.java.game.rules.TestGrid;
 
 import java.awt.desktop.SystemSleepEvent;
+import java.io.*;
 import java.util.InputMismatchException;
 
 public class App {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
             System.out.println("Welcome to ConnectFour !");
+            PrintWriter file = new PrintWriter(new BufferedWriter(new FileWriter("log.txt")));
             //Getting what's typed in the shell
             java.util.Scanner entry = new java.util.Scanner(System.in);
 
@@ -39,18 +41,20 @@ public class App {
                 players[i]= new Player();
                 System.out.println("Please for each player choose human/ia and an username.");
                 String type = entry.next();
-                String nameTemp = entry.next();
                 while(!(type.equals("ia") || type.equals("human"))){
                     System.out.println("Please respect usage : human YourName or ia RobotName.");
                     type = entry.next();
                 }
                 players[i].setType(type);
-                players[i].setName(entry.next());
+                String name = entry.next();
+                players[i].setName(name);
+                file.println("Joueur " + (i+1) + " est " + type + " " + name);
             }
             GameHandler handler = new GameHandler(3, nbPlayers);
             int currentPlayer=0;
             int begginer=0;
             while(handler.getMaxScore() < 3){
+                file.println("Manche commence");
                 Grid grid = new Grid();
                 Game game = new Game(grid);
                 int round = begginer;
@@ -66,19 +70,29 @@ public class App {
                     game.play(players[currentPlayer], grid, token, end);
                     grid.display();
                     round++;
+                    file.println("Joueur " + (currentPlayer+1) + " joue" + game.getLastColumnPlayed());
                 }
                 if(end.getWin() == -1){ //Tie Game
                     System.out.println("Tie game, nobody won this round ! Next game !");
+                    file.println("Egalite");
                 }
                 else {
                     handler.increaseScore(currentPlayer);
                     System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations ! You have now "
                             + handler.getScore(currentPlayer) + " points.");
+                    file.println("Joueur " + (currentPlayer) + " gagne");
+                    file.print("Score ");
+                    for(int i = 1; i<nbPlayers-1; i++){
+                        file.print(handler.getScore(i) + "-");
+                    }
+                    file.println(handler.getScore(nbPlayers-1));
                     System.out.println("\n ============== NEW ROUND ==============");
                 }
                 begginer++;
             }
             System.out.println(players[currentPlayer].getName() + " won ! GAME OVER !");
+            file.println("Partie finie");
+            file.close();
         }
     }
 

@@ -117,11 +117,11 @@
       <screen x="0" y="27" width="3840" height="1053" />
     </state>
     <state x="2668" y="461" width="494" height="191" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.27.3840.1053@0.27.3840.1053" timestamp="1608638819452" />
-    <state x="567" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1608650608673">
+    <state x="567" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1608660575433">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1608565847180" />
-    <state x="567" y="227" width="374" height="346" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1608650608673" />
+    <state x="567" y="227" width="374" height="346" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1608660575433" />
     <state width="902" height="275" key="GridCell.Tab.0.bottom" timestamp="1608566103720">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -138,5 +138,9 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="902" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1608566103720" />
+    <state x="421" y="89" width="586" height="623" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608661004926">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="421" y="89" width="586" height="623" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1294.741@72.27.1294.741" timestamp="1608661004926" />
   </component>
 </project>

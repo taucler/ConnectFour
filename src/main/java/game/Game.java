@@ -7,6 +7,7 @@ public class Game{
     //Attributes
     private Grid grid;
     private int nbPlayers;
+    private int lastColumnPlayed;
 
     //Constructor
     public Game(Grid grid) {
@@ -18,6 +19,10 @@ public class Game{
         this.grid = grid;
     }
 
+    public int getLastColumnPlayed() {
+        return lastColumnPlayed;
+    }
+
     public Grid setGame(Grid g) {
         return grid = g;
     }
@@ -27,6 +32,7 @@ public class Game{
         //if the player is an ia
         if(player.getType().equals("ia")){
             int choice =(int)(Math.random()*grid.getColumns());
+            lastColumnPlayed = choice + 1;
             grid.fillSquare(choice, token, grid, endgame);
         }
         else {
@@ -41,6 +47,7 @@ public class Game{
                 choice=entry.nextInt();
 
             }
+            lastColumnPlayed = choice;
             grid.fillSquare(choice - 1, token, grid, endgame);
         }
     }
