@@ -1,4 +1,4 @@
-package test.java.display;
+package main.java.game.rules;
 
 import main.java.game.Grid;
 
@@ -81,6 +81,5 @@ public class TestGrid {
             this.win = token;
             return;
         }
-        System.out.println("Testgrid done");
     }
 }

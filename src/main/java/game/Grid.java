@@ -1,6 +1,5 @@
 package main.java.game;
-import test.java.display.TestGrid;
-import java.util.*;
+import main.java.game.rules.TestGrid;
 
 public class Grid {
 
@@ -99,19 +98,16 @@ public class Grid {
 
     public void fillSquare(int column, int token, Grid grid, TestGrid endgame) {
         //fill a square when a player wants to play
-        int current;
-        current = 0;
+        int current = 0;
         if(this.state[current][column]!=0){
             System.out.println("Chosen column is already full, please choose a new column.");
         }
         while((this.state[current][column]==0) && (current<grid.getLines()-1)) {
-            System.out.println(current);
             current++;
         }
         if((current == grid.getLines()-1) && (this.state[current][column]==0)){
             current++;
         }
-        System.out.println(this.state[current-1][column]);
         if(token == 1) {
             this.grid[current-1][column] = 'X';
             this.state[current-1][column] = 1;
@@ -120,7 +116,6 @@ public class Grid {
             this.grid[current-1][column] = 'O';
             this.state[current-1][column] = 2;
         }
-        System.out.println("Before testGrid");
         endgame.testGrid(grid, current-1, column);
     }
 

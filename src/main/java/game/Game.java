@@ -1,7 +1,7 @@
 package main.java.game;
 
 import java.util.Random;
-import test.java.display.TestGrid;
+import main.java.game.rules.TestGrid;
 public class Game{
 
     //Attributes
@@ -26,9 +26,9 @@ public class Game{
         java.util.Scanner entry =   new java.util.Scanner(System.in);
         //if the player is an ia
         if(player.getType().equals("ia")){
-            Random rand = new Random();
-            int choice = rand.nextInt(grid.getColumns()-1);
-            grid.fillSquare(choice-1, token, grid, endgame);
+            int choice =(int)(Math.random()*grid.getColumns());
+            System.out.println(choice);
+            grid.fillSquare(choice, token, grid, endgame);
         }
         else {
             //if the player is a human
