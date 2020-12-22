@@ -97,7 +97,7 @@ public class App {
                     file.println("Joueur " + (currentPlayer+1) + " gagne");
                     file.print("Score ");
                     for(int i = 0; i<nbPlayers-1; i++){
-                        file.print(handler.getScore(i) + "-");
+                        file.print(handler.getScore(i) + " - ");
                     }
                     file.println(handler.getScore(nbPlayers-1));
                     System.out.println("\n ============== NEW ROUND ==============");
