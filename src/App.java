@@ -53,7 +53,12 @@ public class App {
                 players[i].setType(type);
                 String name = entry.next();
                 players[i].setName(name);
-                file.println("Joueur " + (i+1) + " est " + type + " " + name);
+                if(type.equals("human")) {
+                    file.println("Joueur " + (i + 1) + " est humain " + name);
+                }
+                else{
+                    file.println("Joueur " + (i + 1) + " est ia " + name);
+                }
             }
             GameHandler handler = new GameHandler(3, nbPlayers);
             int currentPlayer=0;
