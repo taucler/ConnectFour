@@ -30,7 +30,7 @@ public class TestGrid {
             i++;
         }
         if(count>=4){
-            this.win = 1;
+            this.win = token;
             return;
         }
         //Test de la grille horizontalement
@@ -46,7 +46,7 @@ public class TestGrid {
             i++;
         }
         if(count>=4){
-            this.win = 1;
+            this.win = token;
             return;
         }
         //Test de la grille en diagonale
@@ -62,7 +62,7 @@ public class TestGrid {
             i++;
         }
         if(count>=4){
-            this.win = 1;
+            this.win = token;
             return;
         }
     //Test de la grille dans la 2ème diagonale
@@ -78,7 +78,7 @@ public class TestGrid {
             i++;
         }
         if(count>=4){
-            this.win = 1;
+            this.win = token;
             return;
         }
         System.out.println("Testgrid done");

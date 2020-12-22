@@ -27,7 +27,7 @@ public class App {
                 players[i].setName(entry.next());
             }
             int round = 0;
-            int currentPlayer;
+            int currentPlayer = 0;
             //Play
             TestGrid end = new TestGrid();
             grid.display();
@@ -41,6 +41,10 @@ public class App {
                 grid.display();
                 round++;
             }
+            for(int j=0; j<nbPlayers; j++){
+
+            }
+            System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations !");
         }
     }
 
