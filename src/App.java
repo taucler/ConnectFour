@@ -70,7 +70,7 @@ public class App {
                     game.play(players[currentPlayer], grid, token, end);
                     grid.display();
                     round++;
-                    file.println("Joueur " + (currentPlayer+1) + " joue" + game.getLastColumnPlayed());
+                    file.println("Joueur " + (currentPlayer+1) + " joue " + game.getLastColumnPlayed());
                 }
                 if(end.getWin() == -1){ //Tie Game
                     System.out.println("Tie game, nobody won this round ! Next game !");
@@ -78,11 +78,15 @@ public class App {
                 }
                 else {
                     handler.increaseScore(currentPlayer);
-                    System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations ! You have now "
-                            + handler.getScore(currentPlayer) + " points.");
-                    file.println("Joueur " + (currentPlayer) + " gagne");
+                    System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations !");
+                    System.out.print("Score : ");
+                    for(int i = 0; i<nbPlayers-1; i++){
+                        System.out.print(players[i].getName() + " " + handler.getScore(i) + " - ");
+                    }
+                    System.out.println(players[nbPlayers-1].getName() + " " + handler.getScore(nbPlayers-1));
+                    file.println("Joueur " + (currentPlayer+1) + " gagne");
                     file.print("Score ");
-                    for(int i = 1; i<nbPlayers-1; i++){
+                    for(int i = 0; i<nbPlayers-1; i++){
                         file.print(handler.getScore(i) + "-");
                     }
                     file.println(handler.getScore(nbPlayers-1));
