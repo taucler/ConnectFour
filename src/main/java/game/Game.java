@@ -27,7 +27,6 @@ public class Game{
         //if the player is an ia
         if(player.getType().equals("ia")){
             int choice =(int)(Math.random()*grid.getColumns());
-            System.out.println(choice);
             grid.fillSquare(choice, token, grid, endgame);
         }
         else {

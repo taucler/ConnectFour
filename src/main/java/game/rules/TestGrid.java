@@ -3,7 +3,7 @@ package main.java.game.rules;
 import main.java.game.Grid;
 
 public class TestGrid {
-    private int win;
+    private int win; //game still running :0 / someone win : positive int / TieGame : -1
 
     public TestGrid(){
         this.win = 0;
@@ -17,7 +17,14 @@ public class TestGrid {
         int count = 1;
         int i = 1;
         int token = grid.getState(line,column);
-        //System.out.println(token);
+        //test d'égalité
+        int tieCount=0;
+        while(grid.getState(0, tieCount)!=0) {
+            tieCount++;
+        }
+        if(tieCount==grid.getColumns()){
+            this.win=-1;
+        }
         //Test de la grille verticalement
         //System.out.println(grid.getState(line+i, column));
         while(token==grid.getState(line+i, column)){

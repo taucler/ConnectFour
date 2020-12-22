@@ -4,6 +4,8 @@ import main.java.game.Grid;
 import main.java.game.Player;
 import main.java.game.rules.TestGrid;
 
+import java.awt.desktop.SystemSleepEvent;
+
 public class App {
 
 
@@ -29,11 +31,11 @@ public class App {
             }
             GameHandler handler = new GameHandler(3, nbPlayers);
             int currentPlayer=0;
+            int begginer=0;
             while(handler.getMaxScore() < 3){
                 Grid grid = new Grid();
                 Game game = new Game(grid);
-                int round = 0;
-                currentPlayer = 0;
+                int round = begginer;
                 //Play
                 TestGrid end = new TestGrid();
                 grid.display();
@@ -47,9 +49,15 @@ public class App {
                     grid.display();
                     round++;
                 }
-                handler.increaseScore(currentPlayer);
-                System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations ! You have now "
-                + handler.getScore(currentPlayer) +" points.");
+                if(end.getWin() == -1){ //Tie Game
+                    System.out.println("Tie game, nobody won this round ! Next game !");
+                }
+                else {
+                    handler.increaseScore(currentPlayer);
+                    System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations ! You have now "
+                            + handler.getScore(currentPlayer) + " points.");
+                }
+                begginer++;
             }
             System.out.println(players[currentPlayer].getName() + " won ! GAME OVER !");
         }

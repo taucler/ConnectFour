@@ -8,7 +8,8 @@
     <list default="true" id="8cbeda32-fb8e-43fc-9f71-9593662ef013" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/display/TestGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/display/TestGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/rules/TestGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/rules/TestGrid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +36,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../exemple" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.unlinked.gradle.project.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="main.java.game.rules" />
+      <recent name="main.java.game" />
+      <recent name="test.java.rules" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -50,11 +59,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.game.Main" />
+      <option name="MAIN_CLASS_NAME" value="main.java.game.rules.Main" />
       <module name="ConnectFour" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.game.*" />
+          <option name="PATTERN" value="main.java.game.rules.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,6 +110,14 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="687" y="318" width="1084" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1608031970101" />
+    <state x="2668" y="448" width="494" height="226" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1608638852576">
+      <screen x="0" y="27" width="3840" height="1053" />
+    </state>
+    <state x="2668" y="448" width="494" height="226" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.3840.1053@0.27.3840.1053" timestamp="1608638852576" />
+    <state x="2668" y="461" width="494" height="191" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1608638819452">
+      <screen x="0" y="27" width="3840" height="1053" />
+    </state>
+    <state x="2668" y="461" width="494" height="191" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.27.3840.1053@0.27.3840.1053" timestamp="1608638819452" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1608565847180">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
