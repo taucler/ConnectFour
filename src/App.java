@@ -23,7 +23,7 @@ public class App {
 
             //Display the menu on the screen and get the player info
             //Game game = new Game(grid);
-            System.out.println("Number of players ?");
+            System.out.println("Number of players ? (max 2 for now)");
             int nbPlayers = -1;
             while(nbPlayers==-1) {
                 try {
@@ -32,8 +32,13 @@ public class App {
                     System.out.println("The entered value is not an int");
                 }
             }
-            while(nbPlayers<2){
-                System.out.println("Unfortunately, you cannot play ConnectFour alone (at least 2)... But feel free to play against our IA !");
+            while(nbPlayers!=2){
+                if(nbPlayers<2){
+                    System.out.println("Unfortunately, you cannot play ConnectFour alone (at least 2)... But feel free to play against our IA !");
+                }
+                else {
+                    System.out.println("We are sorry, but our game is not designed to be played by more than 2 players for now. ");
+                }
                 nbPlayers = entry.nextInt();
             }
             Player players[] = new Player[nbPlayers];
