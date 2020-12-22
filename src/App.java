@@ -21,12 +21,21 @@ public class App {
             //Display the menu on the screen and get the player info
             //Game game = new Game(grid);
             System.out.println("Number of players ?");
-            int nbPlayers = Integer.parseInt(entry.next());
+            int nbPlayers = entry.nextInt();
+            while(nbPlayers<1){
+                System.out.println("Unfortunately, you cannot play ConnectFour alone (at least 2)... But feel free to play against our IA !");
+                nbPlayers = entry.nextInt();
+            }
             Player players[] = new Player[nbPlayers];
             for(int i = 0; i<nbPlayers; i++){
                 players[i]= new Player();
                 System.out.println("Please for each player choose human/ia and an username.");
-                players[i].setType(entry.next());
+                String type = entry.next();
+                while(!(type.equals("ia") || type.equals("human"))){
+                    System.out.println("Please for each player choose human/ia and an username.");
+                    type = entry.next();
+                }
+                players[i].setType(type);
                 players[i].setName(entry.next());
             }
             GameHandler handler = new GameHandler(3, nbPlayers);
@@ -56,6 +65,7 @@ public class App {
                     handler.increaseScore(currentPlayer);
                     System.out.println(players[currentPlayer].getName() + " won this game ! Congratulations ! You have now "
                             + handler.getScore(currentPlayer) + " points.");
+                    System.out.println("\n ============== NEW ROUND ==============");
                 }
                 begginer++;
             }
