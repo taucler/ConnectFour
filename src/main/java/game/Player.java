@@ -8,7 +8,7 @@ public class Player{
 
     //Constructor
     public Player(){
-        this.type = "ia";
+        this.type = "ai";
         this.name = "MrRobot";
     }
     public Player(String type, String name) {
