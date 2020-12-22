@@ -5,6 +5,7 @@ import main.java.game.Player;
 import main.java.game.rules.TestGrid;
 
 import java.awt.desktop.SystemSleepEvent;
+import java.util.InputMismatchException;
 
 public class App {
 
@@ -21,8 +22,15 @@ public class App {
             //Display the menu on the screen and get the player info
             //Game game = new Game(grid);
             System.out.println("Number of players ?");
-            int nbPlayers = entry.nextInt();
-            while(nbPlayers<1){
+            int nbPlayers = -1;
+            while(nbPlayers==-1) {
+                try {
+                    nbPlayers = entry.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("The entered value is not an int");
+                }
+            }
+            while(nbPlayers<2){
                 System.out.println("Unfortunately, you cannot play ConnectFour alone (at least 2)... But feel free to play against our IA !");
                 nbPlayers = entry.nextInt();
             }
@@ -31,8 +39,9 @@ public class App {
                 players[i]= new Player();
                 System.out.println("Please for each player choose human/ia and an username.");
                 String type = entry.next();
+                String nameTemp = entry.next();
                 while(!(type.equals("ia") || type.equals("human"))){
-                    System.out.println("Please for each player choose human/ia and an username.");
+                    System.out.println("Please respect usage : human YourName or ia RobotName.");
                     type = entry.next();
                 }
                 players[i].setType(type);
